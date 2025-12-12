@@ -1,0 +1,61 @@
+body{
+  
+ width: 100vh;
+ font-family: Arial;
+ text-align: center;
+ padding: 20px;
+
+};
+
+.container{
+width: 500px;
+margin: 30px;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 8px;
+background-color: white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.play-btn{
+
+  padding: 6px 13px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+
+}
+
+.play-btn:hover {
+  background-color: #0056b3;
+
+}
+
+.form{
+  margin:20px 0 ;
+
+}
+
+.field,
+.play-btn{
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+
+}
+
+.result{
+  font-weight: bold;
+  font-size: 18px;
+  height: 25px;
+  margin-bottom: 15px;
+
+}
+
+.win{
+  color: green;
+}
