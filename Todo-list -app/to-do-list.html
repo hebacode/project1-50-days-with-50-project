@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To -d0 list</title>
+    <style>
+      body{
+          font-family: Arial;
+        font-size: 18px;
+      }
+
+      .todo-box
+      {
+        display: grid;
+        grid-template-columns: 200px 150px;
+        align-items: center;
+        column-gap: 10px;
+        justify-content: center;
+
+
+      }
+
+      .result-grid{
+         display: grid;
+         grid-template-columns: 200px 150px;
+        align-items: center;
+        column-gap: 10px;
+        row-gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+      }
+      li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      
+      .todo{
+        padding: 10px 16px;
+        border: 1px solid rgb(222, 220, 220);
+
+      }
+
+      .add-todo{
+         padding: 10px 16px;
+         background-color: rgb(10,102,194);
+         color: white;
+         border: solid;
+         border-radius: 4px;
+         cursor: pointer;
+
+      }
+
+      .remove{
+        background-color: darkred;
+        color: white;
+        border: solid;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      h2{
+        display: grid;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h2>Todo List</h2>
+    <div class="todo-box">
+      <input type="text" placeholder="Todo name" class="js-todo-field todo">
+    
+      <button onclick="
+      addTodo();
+
+      " class="add-todo">Add todo</button>
+          </div>
+
+    
+      <div class="js-result result-grid"></div>
+      
+
+
+    <script>
+      let listArray = [{
+        name:'Youtube post',
+      },
+      {
+        name:'New year shopping',
+      }
+      
+      ];
+
+   // 
+   updateAddTodo();
+
+   function updateAddTodo(){
+
+   let todoValue = '';
+   
+
+  for (let i = 0; i < listArray.length; i++){
+    const valueObject = listArray[i];
+    
+    let {name} = valueObject;
+
+    const html = `
+
+        <div>${name}</div>
+          <button onclick="
+          listArray.splice(${i},1);
+          updateAddTodo();
+          " class="remove">Remove</button>
+        
+    `;
+
+    todoValue += html;
+        console.log(todoValue);
+
+  }
+
+     document.querySelector('.js-result').innerHTML = todoValue;
+}
+
+    function addTodo () {
+      const inputElem = document.querySelector('.js-todo-field');
+    
+        const todoInput = inputElem.value;
+
+        listArray.push({
+          name:todoInput,
+        });
+        console.log(listArray);
+        
+        inputElem.value = '';
+
+       updateAddTodo();
+
+      }
+
+    </script>
+  </body>
+</html>
